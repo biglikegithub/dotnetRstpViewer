@@ -12,6 +12,8 @@ namespace RtspViewerTest
         private bool _isRunning = false;
         private StreamConfiguration _config = new StreamConfiguration();
 
+        private VideoPlayer _videoPlayer;
+
         public Form1()
         {
             InitializeComponent();
@@ -19,12 +21,13 @@ namespace RtspViewerTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _videoPlayer = new VideoPlayer(pbVideo, Width, Height);
 
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            videoView.Stop();
+            // videoView.Stop();
         }
 
         private void playBtn_Click(object sender, EventArgs e)
@@ -36,23 +39,23 @@ namespace RtspViewerTest
 
             if (_isRunning)
             {
-                videoView.Stop();
+                _videoPlayer.Stop();
                 playBtn.Text = "Play";
                 _isRunning = false;
-                videoView.SetPicture("https://qr.gatepro.mn/static/2025/01/15/1222%D0%A3%D0%9A%D0%9E-20250129170823.jpg");
+                _videoPlayer.SetPicture("https://qr.gatepro.mn/static/2025/01/15/1222%D0%A3%D0%9A%D0%9E-20250129170823.jpg");
             }
             else
             {
-                videoView.InitialiseStream(_config);
-                StreamConfiguration.Save(ConfigurationFilename, _config);
-
+                _videoPlayer.InitialiseStream(_config);
+                // StreamConfiguration.Save(ConfigurationFilename, _config);
+                _videoPlayer.Start();
                 if (string.IsNullOrWhiteSpace(_config.Address))
                 {
-                    videoView.Stop();
+                    //  videoView.Stop();
                 }
                 else
                 {
-                    videoView.Start();
+                    //  videoView.Start();
                     playBtn.Text = "Stop";
                     _isRunning = true;
                 }

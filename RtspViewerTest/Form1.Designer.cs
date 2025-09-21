@@ -29,46 +29,48 @@
         private void InitializeComponent()
         {
             this.playBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.videoView = new RtspViewerTest.Controls.vVideoView();
+            this.pbVideo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVideo)).BeginInit();
             this.SuspendLayout();
             // 
             // playBtn
             // 
-            this.playBtn.Location = new System.Drawing.Point(63, -4);
-            this.playBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.playBtn.Location = new System.Drawing.Point(12, 12);
             this.playBtn.Name = "playBtn";
-            this.playBtn.Size = new System.Drawing.Size(94, 29);
+            this.playBtn.Size = new System.Drawing.Size(70, 24);
             this.playBtn.TabIndex = 1;
             this.playBtn.Text = "play";
             this.playBtn.Click += new System.EventHandler(this.playBtn_Click);
             // 
-            // videoView
+            // pbVideo
             // 
-            this.videoView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.videoView.Location = new System.Drawing.Point(0, 0);
-            this.videoView.Name = "videoView";
-            this.videoView.Size = new System.Drawing.Size(800, 450);
-            this.videoView.TabIndex = 0;
+            this.pbVideo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pbVideo.Location = new System.Drawing.Point(12, 54);
+            this.pbVideo.Name = "pbVideo";
+            this.pbVideo.Size = new System.Drawing.Size(576, 300);
+            this.pbVideo.TabIndex = 2;
+            this.pbVideo.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.pbVideo);
             this.Controls.Add(this.playBtn);
-            this.Controls.Add(this.videoView);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbVideo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Controls.vVideoView videoView;
         private DevExpress.XtraEditors.SimpleButton playBtn;
+        private System.Windows.Forms.PictureBox pbVideo;
     }
 }
 
